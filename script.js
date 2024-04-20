@@ -1,5 +1,8 @@
 const container = document.querySelector("#container");
-
+function randomColor(){
+    const colorArray = ["red", "green", "blue"];
+    return colorArray[Math.floor(Math.random()*3)];
+}
 
 function createGrid(squaresPerSide){
     for(let i=1; i<=squaresPerSide*squaresPerSide; i++){
@@ -12,7 +15,8 @@ function createGrid(squaresPerSide){
     }
     for(let square of container.querySelectorAll(".square")){
         square.addEventListener("mouseenter", ()=>{
-            square.style.backgroundColor = "yellow";
+            square.style.backgroundColor = randomColor();
+            
         })
     }
         
@@ -27,7 +31,7 @@ const popUp = document.querySelector("#pop-up");
 popUp.addEventListener("click", ()=>{
     const squaresPerSide = Number(prompt("Enter squares per side"));
     container.textContent = "";
-    createGrid(squaresPerSide)
+    createGrid(squaresPerSide);
 
 
 
